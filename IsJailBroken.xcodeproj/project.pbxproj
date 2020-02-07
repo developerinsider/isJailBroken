@@ -13,6 +13,7 @@
 		4465ABDF23ED7FDE00444B91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4465ABDD23ED7FDE00444B91 /* Main.storyboard */; };
 		4465ABE123ED7FE600444B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4465ABE023ED7FE600444B91 /* Assets.xcassets */; };
 		4465ABE423ED7FE600444B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4465ABE223ED7FE600444B91 /* LaunchScreen.storyboard */; };
+		4465ABED23ED801D00444B91 /* UIDevice+JailBroken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465ABEC23ED801D00444B91 /* UIDevice+JailBroken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4465ABE023ED7FE600444B91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4465ABE323ED7FE600444B91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4465ABE523ED7FE600444B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4465ABEC23ED801D00444B91 /* UIDevice+JailBroken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+JailBroken.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		4465ABD623ED7FDE00444B91 /* IsJailBroken */ = {
 			isa = PBXGroup;
 			children = (
+				4465ABEB23ED7FF300444B91 /* Extension */,
 				4465ABD723ED7FDE00444B91 /* AppDelegate.swift */,
 				4465ABD923ED7FDE00444B91 /* SceneDelegate.swift */,
 				4465ABDB23ED7FDE00444B91 /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				4465ABE523ED7FE600444B91 /* Info.plist */,
 			);
 			path = IsJailBroken;
+			sourceTree = "<group>";
+		};
+		4465ABEB23ED7FF300444B91 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4465ABEC23ED801D00444B91 /* UIDevice+JailBroken.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 			files = (
 				4465ABDC23ED7FDE00444B91 /* ViewController.swift in Sources */,
 				4465ABD823ED7FDE00444B91 /* AppDelegate.swift in Sources */,
+				4465ABED23ED801D00444B91 /* UIDevice+JailBroken.swift in Sources */,
 				4465ABDA23ED7FDE00444B91 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
