@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var jailbrokenLabel: UILabel!
+    @IBOutlet weak var simulatorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        jailbrokenLabel.text = "Is JailBroken - \(UIDevice.current.isJailBroken)"
+        simulatorLabel.text = "Is Simulator - \(UIDevice.current.isSimulator)"
     }
 
 

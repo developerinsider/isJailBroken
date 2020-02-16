@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        print("Is Simulator \(UIDevice.current.isSimulator)")
-        print("Is JailBroken \(UIDevice.current.isJailBroken)")
         return true
     }
 
