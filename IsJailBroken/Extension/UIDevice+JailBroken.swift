@@ -17,15 +17,30 @@ extension UIDevice {
     var isJailBroken: Bool {
         get {
             if UIDevice.current.isSimulator { return false }
-            if JailBrokenHelper.isContainsSuspiciousFiles() { return true }
+            if JailBrokenHelper.hasCydiaInstalled() { return true }
+            if JailBrokenHelper.isContainsSuspiciousApps() { return true }
+            if JailBrokenHelper.isSuspiciousSystemPathsExists() { return true }
             return JailBrokenHelper.canEditSystemFiles()
         }
     }
 }
 
 private struct JailBrokenHelper {
-    static func isContainsSuspiciousFiles() -> Bool {
-        for path in pathsToCheck {
+    static func hasCydiaInstalled() -> Bool {
+        return UIApplication.shared.canOpenURL(URL(string: "cydia://")!)
+    }
+    
+    static func isContainsSuspiciousApps() -> Bool {
+        for path in suspiciousAppsPathToCheck {
+            if FileManager.default.fileExists(atPath: path) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    static func isSuspiciousSystemPathsExists() -> Bool {
+        for path in suspiciousSystemPathsToCheck {
             if FileManager.default.fileExists(atPath: path) {
                 return true
             }
@@ -46,7 +61,7 @@ private struct JailBrokenHelper {
     /**
      Add more paths here to check for jail break
      */
-    static var pathsToCheck: [String] {
+    static var suspiciousAppsPathToCheck: [String] {
         return ["/Applications/Cydia.app",
                 "/Applications/blackra1n.app",
                 "/Applications/FakeCarrier.app",
@@ -55,8 +70,12 @@ private struct JailBrokenHelper {
                 "/Applications/MxTube.app",
                 "/Applications/RockApp.app",
                 "/Applications/SBSettings.app",
-                "/Applications/WinterBoard.app",
-                "/Library/MobileSubstrate/DynamicLibraries/LiveClock.plist",
+                "/Applications/WinterBoard.app"
+        ]
+    }
+    
+    static var suspiciousSystemPathsToCheck: [String] {
+        return ["/Library/MobileSubstrate/DynamicLibraries/LiveClock.plist",
                 "/Library/MobileSubstrate/DynamicLibraries/Veency.plist",
                 "/private/var/lib/apt",
                 "/private/var/lib/apt/",
